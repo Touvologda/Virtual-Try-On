@@ -21,3 +21,4 @@ clean-fid
 torchmetrics
 tqdm
 prettytable
+easy-dwpose --no-dependencies
