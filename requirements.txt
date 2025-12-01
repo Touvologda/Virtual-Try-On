@@ -21,4 +21,3 @@ clean-fid
 torchmetrics
 tqdm
 prettytable
-pip install easy-dwpose --no-dependencies
