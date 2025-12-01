@@ -5,6 +5,7 @@ transformers
 gradio
 accelerate
 opencv-python
+opencv-python-headless
 scikit-image
 fvcore
 cloudpickle
