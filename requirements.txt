@@ -23,5 +23,6 @@ clean-fid
 torchmetrics
 tqdm
 prettytable
+git
 git-lfs
 easy_dwpose
