@@ -44,7 +44,8 @@ class FastFitDemo:
         device: str = None,
     ):
         self.device = device if device is not None else 'cuda' if torch.cuda.is_available() else 'cpu'
-        self.dwpose_detector = DWposeDetector(pretrained_model_name_or_path=os.path.join(util_model_path, 'DWPose'), device='cpu')
+        #os.path.join(util_model_path, 'DWPose')
+        self.dwpose_detector = DWposeDetector(pretrained_model_name_or_path='https://huggingface.co/yzd-v/DWPose/blob/main/yolox_l.onnx', device='cpu')
         self.densepose_detector = DensePose(model_path=os.path.join(util_model_path, 'DensePose'), device=self.device)
         self.schp_lip_detector = SCHP(ckpt_path=os.path.join(util_model_path, 'SCHP', 'schp-lip.pth'), device=self.device)
         self.schp_atr_detector = SCHP(ckpt_path=os.path.join(util_model_path, 'SCHP', 'schp-atr.pth'), device=self.device)
