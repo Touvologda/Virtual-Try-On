@@ -8,6 +8,7 @@ import torch
 
 from easy_dwpose.body_estimation import Wholebody, resize_image
 from easy_dwpose.draw import draw_openpose
+import streamlit as st
 
 
 class DWposeDetector:
@@ -93,3 +94,4 @@ class DWposeDetector:
 
 
         return pose_image
+
