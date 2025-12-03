@@ -6,7 +6,7 @@ transformers
 gradio
 accelerate
 opencv-python
-opencv-python-headless
+#opencv-python-headless
 python3-opencv
 ffmpeg 
 scikit-image
