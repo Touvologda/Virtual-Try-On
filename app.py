@@ -43,9 +43,9 @@ pg.run()
 cur_path = os.getcwd()
 st.write(cur_path)
 os.chdir(cur_path)
-if not os.path.exists(ss['model_path']):
+if not os.path.exists(cur_path+'/'+ss['model_path']):
     os.makedirs('Models', exist_ok=True) 
     url = 'https://drive.google.com/drive/folders/1v_GL73hGISRrDIM_5ig1_yCbKH9ar2I2?usp=sharing'
     gdown.download_folder(url)
     st.write('upload weights')
-    
+st.write(os.path.exists(cur_path+'/'+ss['model_path']))    
