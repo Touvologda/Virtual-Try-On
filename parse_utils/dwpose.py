@@ -13,6 +13,9 @@ from easy_dwpose.draw import draw_openpose
 class DWposeDetector:
     def __init__(self, pretrained_model_name_or_path: str = "RedHash/DWPose", device: str = "сpu"):
         local_dir = pretrained_model_name_or_path
+        st.write(local_dir)
+        st.write(f"{local_dir}/yolox_l.onnx")
+        st.write(f"{local_dir}/dw-ll_ucoco_384.onnx")
         self.pose_estimation = Wholebody(
             device=device, 
             model_det=f"{local_dir}/yolox_l.onnx", 
@@ -87,5 +90,6 @@ class DWposeDetector:
             pass
         else:
             raise ValueError("output_type should be 'pil' or 'np'")
+
 
         return pose_image
