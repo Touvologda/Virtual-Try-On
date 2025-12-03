@@ -7,7 +7,7 @@ gradio
 accelerate
 opencv-python
 opencv-python-headless
-libgl1
+python3-opencv
 ffmpeg 
 scikit-image
 fvcore
