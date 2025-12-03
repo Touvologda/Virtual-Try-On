@@ -5,7 +5,7 @@ diffusers
 transformers 
 gradio
 accelerate
-#opencv-python
+opencv-python
 opencv-python-headless
 scikit-image
 fvcore
