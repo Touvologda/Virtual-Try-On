@@ -14,7 +14,7 @@ import gdown
 from onnxruntime import InferenceSession
 
 
-#@st.cache_resource
+@st.cache_resource
 def load_model(path):
     #yolox_l.onnx
     url = 'https://drive.google.com/file/d/1Gh-zLY7m5WxdpVBiMNdg0YHE38RKiJMf/view?usp=sharing'
@@ -112,6 +112,7 @@ class DWposeDetector:
 
 
         return pose_image
+
 
 
 
