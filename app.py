@@ -42,7 +42,7 @@ pg.run()
 
 if ss['path'] == '' :
     ss['path'] = os.getcwd() + '/'
-os.chdir(ss['path')
+os.chdir(ss['path'])
 st.write(not os.path.exists(ss['path']+ss['model_path']))
 if not os.path.exists(ss['path']+ss['model_path']):
     os.makedirs('Models', exist_ok=True) 
