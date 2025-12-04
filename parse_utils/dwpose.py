@@ -9,6 +9,7 @@ import torch
 from easy_dwpose.body_estimation import Wholebody, resize_image
 from easy_dwpose.draw import draw_openpose
 import streamlit as st
+from streamlit import session_state as ss
 from onnxruntime import InferenceSession
 
 
@@ -103,6 +104,7 @@ class DWposeDetector:
 
 
         return pose_image
+
 
 
 
