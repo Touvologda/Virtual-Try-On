@@ -20,17 +20,17 @@ def load_model(path):
     output_path = path + 'Models/Human-Toolkit/DWPose/yolox_l.onnx'
     gdown.download(url, output_path, quiet=False, fuzzy=True)
     sess = InferenceSession(output_path)
-    return sess
+    return output_path
 
 class DWposeDetector:
     def __init__(self, pretrained_model_name_or_path: str = "RedHash/DWPose", device: str = "сpu"):
         local_dir = pretrained_model_name_or_path
        
-        sess = load_model(ss['path'])
+        output_path = load_model(ss['path'])
         st.write('upload file')
         self.pose_estimation = Wholebody(
             device=device, 
-            model_det=f"{local_dir}/yolox_l.onnx", 
+            model_det=output_path, #f"{local_dir}/yolox_l.onnx", 
             model_pose=f"{local_dir}/dw-ll_ucoco_384.onnx"
         )
 
@@ -105,6 +105,7 @@ class DWposeDetector:
 
 
         return pose_image
+
 
 
 
