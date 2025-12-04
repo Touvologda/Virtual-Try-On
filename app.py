@@ -62,7 +62,6 @@ if not os.path.exists(ss['path']+ss['model_path']):
     gdown.download_folder(url)
     st.write('upload weights')
 
-st.write(load_rf_model(ss['path']))
 
 # Running the app
 pg.run()
