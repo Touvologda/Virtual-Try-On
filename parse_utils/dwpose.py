@@ -9,16 +9,15 @@ import torch
 from easy_dwpose.body_estimation import Wholebody, resize_image
 from easy_dwpose.draw import draw_openpose
 import streamlit as st
+from onnxruntime import InferenceSession
 
 
 class DWposeDetector:
     def __init__(self, pretrained_model_name_or_path: str = "RedHash/DWPose", device: str = "сpu"):
         local_dir = pretrained_model_name_or_path
-        ## delete
-        st.write(local_dir)
-        st.write(f"{local_dir}/yolox_l.onnx")
-        st.write(f"{local_dir}/dw-ll_ucoco_384.onnx")
-        ## delete
+       
+        sess = InferenceSession(f"{local_dir}/yolox_l.onnx")
+        st.write(sess)
         self.pose_estimation = Wholebody(
             device=device, 
             model_det=f"{local_dir}/yolox_l.onnx", 
@@ -96,5 +95,6 @@ class DWposeDetector:
 
 
         return pose_image
+
 
 
