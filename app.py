@@ -56,7 +56,7 @@ my_hf_token = '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'
 
 login(my_hf_token)
 huggingface_hub.hf_hub_download(
-    repo_id='https://huggingface.co/Touvologda/yolox_l/resolve/main/yolox_l.onnx',
+    repo_id='Touvologda/DWPose',
     filename='yolox_l.onnx',
     local_dir='./Models/Human-Toolkit/DWPose/yolox_l.onnx"'
 )
