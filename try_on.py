@@ -43,7 +43,6 @@ class FastFitDemo:
         mixed_precision: str = 'bf16',
         device: str = None,
     ):
-        st.write(util_model_path)
         self.device = device if device is not None else 'cuda' if torch.cuda.is_available() else 'cpu'
         self.dwpose_detector = DWposeDetector(
             pretrained_model_name_or_path=os.path.join(util_model_path, 'DWPose'), device='cpu')
