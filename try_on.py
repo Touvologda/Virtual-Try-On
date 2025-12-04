@@ -202,7 +202,7 @@ def click_button(person_image, dress_img, top_img, bottom_img):
     
     
     return img, msg_key
-
+@st.cache_data
 def try_on():
     st.title('Примерочная') 
     btn_generate = st.button(
