@@ -2,7 +2,6 @@
 import streamlit as st
 from streamlit import session_state as ss
 import gdown
-import pickle
 import os
 from onnxruntime import InferenceSession
 
@@ -55,7 +54,7 @@ pg = st.navigation(pages, position='sidebar', expanded=True)
 if ss['path'] == '' :
     ss['path'] = os.getcwd() + '/'
 os.chdir(ss['path'])
-st.write(not os.path.exists(ss['path']+ss['model_path']))
+
 if not os.path.exists(ss['path']+ss['model_path']):
     os.makedirs('Models', exist_ok=True) 
     url = 'https://drive.google.com/drive/folders/1v_GL73hGISRrDIM_5ig1_yCbKH9ar2I2?usp=sharing'
