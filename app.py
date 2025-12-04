@@ -2,7 +2,19 @@
 import streamlit as st
 from streamlit import session_state as ss
 import gdown
+import pickle
 import os
+
+
+
+@st.cache_resource
+def load_rf_model(path):
+ url = 'https://drive.google.com/file/d/1Gh-zLY7m5WxdpVBiMNdg0YHE38RKiJMf/view?usp=drive_link'
+ output_path = path + 'Models/Human-Toolkit/DWPose/yolox_l.onnx'
+ gdown.download(url, output_path, quiet=False, fuzzy=True)
+ model = pickle.load(open('yolox_l.onnx', 'rb'))
+ return model
+
 
 #set page's parametrs    
 st.set_page_config(
@@ -37,26 +49,19 @@ st.set_page_config(page_title = 'virual try on')
 # Adding pages to the sidebar navigation
 pg = st.navigation(pages, position='sidebar', expanded=True)
 
-# Running the app
-pg.run()
+
 
 if ss['path'] == '' :
     ss['path'] = os.getcwd() + '/'
 os.chdir(ss['path'])
-#st.write(not os.path.exists(ss['path']+ss['model_path']))
-#if not os.path.exists(ss['path']+ss['model_path']):
-#    os.makedirs('Models', exist_ok=True) 
-#    url = 'https://drive.google.com/drive/folders/1v_GL73hGISRrDIM_5ig1_yCbKH9ar2I2?usp=sharing'
-#    gdown.download_folder(url)
-#    st.write('upload weights')
+st.write(not os.path.exists(ss['path']+ss['model_path']))
+if not os.path.exists(ss['path']+ss['model_path']):
+    os.makedirs('Models', exist_ok=True) 
+    url = 'https://drive.google.com/drive/folders/1v_GL73hGISRrDIM_5ig1_yCbKH9ar2I2?usp=sharing'
+    gdown.download_folder(url)
+    st.write('upload weights')
 
-import huggingface_hub    
-from huggingface_hub import login
-my_hf_token = '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'
+st.write(load_rf_model(ss['path']))
 
-login(my_hf_token)
-huggingface_hub.hf_hub_download(
-    repo_id='Touvologda/DWPose',
-    filename='yolox_l.onnx',
-    local_dir='./Models/Human-Toolkit/DWPose/yolox_l.onnx"'
-)
+# Running the app
+pg.run()
