@@ -27,7 +27,7 @@ class DWposeDetector:
         local_dir = pretrained_model_name_or_path
        
         sess = load_model(ss['path'])
-        st.write(sess)
+        st.write('upload file')
         self.pose_estimation = Wholebody(
             device=device, 
             model_det=f"{local_dir}/yolox_l.onnx", 
@@ -105,6 +105,7 @@ class DWposeDetector:
 
 
         return pose_image
+
 
 
 
