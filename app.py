@@ -44,6 +44,7 @@ cur_path = os.getcwd()
 st.write(cur_path)
 os.chdir(cur_path)
 st.write(os.path.exists(cur_path+'/Models/Human-Toolkit/DWPose/yolox_l.onnx'))   
+st.write(cur_path+'/Models/Human-Toolkit/DWPose/yolox_l.onnx')
 if not os.path.exists(cur_path+'/'+ss['model_path']):
     os.makedirs('Models', exist_ok=True) 
     url = 'https://drive.google.com/drive/folders/1v_GL73hGISRrDIM_5ig1_yCbKH9ar2I2?usp=sharing'
