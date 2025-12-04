@@ -178,10 +178,10 @@ class FastFitDemo:
            
             return None, f'error_exception:{e}'
 
-@st.cache_data(show_spinner=False)
-def fetch_measures():
-    # do stuff
-    time.sleep(5)   
+#@st.cache_data(show_spinner=False)
+#def fetch_measures():
+#    # do stuff
+#   time.sleep(5)   
 
 def click_button(person_image, dress_img, top_img, bottom_img):
     demo_instance = FastFitDemo()
@@ -203,7 +203,7 @@ def click_button(person_image, dress_img, top_img, bottom_img):
     
     
     return img, msg_key
-@st.cache_data
+#@st.cache_data
 def try_on():
     st.title('Примерочная') 
     btn_generate = st.button(
