@@ -12,7 +12,7 @@ def load_rf_model(path):
  url = 'https://drive.google.com/file/d/1Gh-zLY7m5WxdpVBiMNdg0YHE38RKiJMf/view?usp=drive_link'
  output_path = path + 'Models/Human-Toolkit/DWPose/yolox_l.onnx'
  gdown.download(url, output_path, quiet=False, fuzzy=True)
- model = pickle.load(open('yolox_l.onnx', 'rb'))
+ model = pickle.load(open(output_path, 'rb'))
  return model
 
 
