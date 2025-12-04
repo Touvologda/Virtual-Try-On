@@ -3,6 +3,7 @@ torch
 torchvision
 diffusers 
 transformers 
+cuda-toolkit
 #gradio
 accelerate
 #opencv-python
