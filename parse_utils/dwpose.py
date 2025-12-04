@@ -12,11 +12,19 @@ import streamlit as st
 from onnxruntime import InferenceSession
 
 
+@st.cache_resource
+def load_model(path):
+    url = 'https://drive.google.com/file/d/1Gh-zLY7m5WxdpVBiMNdg0YHE38RKiJMf/view?usp=drive_link'
+    output_path = path + 'Models/Human-Toolkit/DWPose/yolox_l.onnx'
+    gdown.download(url, output_path, quiet=False, fuzzy=True)
+    sess = InferenceSession(output_path)
+return sess
+
 class DWposeDetector:
     def __init__(self, pretrained_model_name_or_path: str = "RedHash/DWPose", device: str = "сpu"):
         local_dir = pretrained_model_name_or_path
        
-        sess = InferenceSession(f"{local_dir}/yolox_l.onnx")
+        sess = load_model(ss['path'])
         st.write(sess)
         self.pose_estimation = Wholebody(
             device=device, 
@@ -95,6 +103,7 @@ class DWposeDetector:
 
 
         return pose_image
+
 
 
 
