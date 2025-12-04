@@ -16,6 +16,7 @@ from module.pipeline_fastfit import FastFitPipeline
 from parse_utils import DWposeDetector, DensePose, SCHP, multi_ref_cloth_agnostic_mask
 
 PERSON_SIZE = (768, 1024)
+torch.classes.__path__ = [os.path.join(torch.__path__[0], torch.classes.__file__)] 
 
 #----- procedures block------------
 def center_crop_to_aspect_ratio(img: Image.Image, target_ratio: float) -> Image.Image:
