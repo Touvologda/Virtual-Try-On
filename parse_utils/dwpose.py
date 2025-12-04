@@ -16,22 +16,29 @@ from onnxruntime import InferenceSession
 
 @st.cache_resource
 def load_model(path):
+    #yolox_l.onnx
     url = 'https://drive.google.com/file/d/1Gh-zLY7m5WxdpVBiMNdg0YHE38RKiJMf/view?usp=sharing'
-    output_path = path + 'Models/Human-Toolkit/DWPose/yolox_l.onnx'
-    gdown.download(url, output_path, quiet=False, fuzzy=True)
-    sess = InferenceSession(output_path)
-    return output_path
+    path_1 = path + 'Models/Human-Toolkit/DWPose/yolox_l.onnx'
+    gdown.download(url, path_1, quiet=False, fuzzy=True)
+
+    #dw-ll_ucoco_384.onnx
+    url = 'https://drive.google.com/file/d/18YWsmYOBR6u0hQZq458vOMaWNA0aTKrY/view?usp=sharing'
+    path_2 = path + 'Models/Human-Toolkit/DWPose/dw-ll_ucoco_384.onnx'
+    gdown.download(url, path_2, quiet=False, fuzzy=True)
+    #sess = InferenceSession(output_path)
+    return path_1, path_2
 
 class DWposeDetector:
     def __init__(self, pretrained_model_name_or_path: str = "RedHash/DWPose", device: str = "сpu"):
         local_dir = pretrained_model_name_or_path
        
-        output_path = load_model(ss['path'])
+        model_det, model_pose = load_model(ss['path'])
         st.write('upload file')
         self.pose_estimation = Wholebody(
-            device=device, 
-            model_det=output_path, #f"{local_dir}/yolox_l.onnx", 
-            model_pose=f"{local_dir}/dw-ll_ucoco_384.onnx"
+            device = device, 
+       
+            model_det= model_det, #f"{local_dir}/yolox_l.onnx", 
+            model_pose = model_pose #f"{local_dir}/dw-ll_ucoco_384.onnx"
         )
 
     def _format_pose(self, candidates, scores, width, height):
@@ -105,6 +112,7 @@ class DWposeDetector:
 
 
         return pose_image
+
 
 
 
