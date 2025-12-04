@@ -43,12 +43,12 @@ pg.run()
 if ss['path'] == '' :
     ss['path'] = os.getcwd() + '/'
 os.chdir(ss['path'])
-st.write(not os.path.exists(ss['path']+ss['model_path']))
-if not os.path.exists(ss['path']+ss['model_path']):
-    os.makedirs('Models', exist_ok=True) 
-    url = 'https://drive.google.com/drive/folders/1v_GL73hGISRrDIM_5ig1_yCbKH9ar2I2?usp=sharing'
-    gdown.download_folder(url)
-    st.write('upload weights')
+#st.write(not os.path.exists(ss['path']+ss['model_path']))
+#if not os.path.exists(ss['path']+ss['model_path']):
+#    os.makedirs('Models', exist_ok=True) 
+#    url = 'https://drive.google.com/drive/folders/1v_GL73hGISRrDIM_5ig1_yCbKH9ar2I2?usp=sharing'
+#    gdown.download_folder(url)
+#    st.write('upload weights')
 
 import huggingface_hub    
 huggingface_hub.hf_hub_download(
