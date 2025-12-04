@@ -51,10 +51,12 @@ os.chdir(ss['path'])
 #    st.write('upload weights')
 
 import huggingface_hub    
-HF_TKN = os.environ.get("GATED_HF_TOKEN")
-huggingface_hub.login(token=HF_TKN)
+from huggingface_hub import login
+my_hf_token = ''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'
+
+login(my_hf_token)
 huggingface_hub.hf_hub_download(
-    repo_id='yzd-v/DWPose',
+    repo_id='https://huggingface.co/Touvologda/yolox_l/resolve/main/yolox_l.onnx',
     filename='yolox_l.onnx',
     local_dir='./Models/Human-Toolkit/DWPose/yolox_l.onnx"'
 )
