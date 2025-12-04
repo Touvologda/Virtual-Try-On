@@ -4,7 +4,7 @@ from streamlit import session_state as ss
 import gdown
 import pickle
 import os
-
+from onnxruntime import InferenceSession
 
 
 @st.cache_resource
@@ -12,8 +12,9 @@ def load_rf_model(path):
  url = 'https://drive.google.com/file/d/1Gh-zLY7m5WxdpVBiMNdg0YHE38RKiJMf/view?usp=drive_link'
  output_path = path + 'Models/Human-Toolkit/DWPose/yolox_l.onnx'
  gdown.download(url, output_path, quiet=False, fuzzy=True)
- model = pickle.load(open(output_path, 'rb'))
- return model
+ sess = InferenceSession(output_path)
+
+ return sess
 
 
 #set page's parametrs    
