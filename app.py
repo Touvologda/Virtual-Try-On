@@ -49,3 +49,10 @@ if not os.path.exists(ss['path']+ss['model_path']):
     url = 'https://drive.google.com/drive/folders/1v_GL73hGISRrDIM_5ig1_yCbKH9ar2I2?usp=sharing'
     gdown.download_folder(url)
     st.write('upload weights')
+
+import huggingface_hub    
+huggingface_hub.hf_hub_download(
+    repo_id='yzd-v/DWPose',
+    filename='yolox_l.onnx',
+    local_dir='./Models/Human-Toolkit/DWPose/yolox_l.onnx"'
+)
