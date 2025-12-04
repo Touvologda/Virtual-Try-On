@@ -52,7 +52,7 @@ os.chdir(ss['path'])
 
 import huggingface_hub    
 from huggingface_hub import login
-my_hf_token = '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'
+my_hf_token = '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'
 
 login(my_hf_token)
 huggingface_hub.hf_hub_download(
