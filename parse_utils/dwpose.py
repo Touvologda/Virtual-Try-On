@@ -16,7 +16,7 @@ from onnxruntime import InferenceSession
 
 @st.cache_resource
 def load_model(path):
-    url = 'https://drive.google.com/file/d/1Gh-zLY7m5WxdpVBiMNdg0YHE38RKiJMf/view?usp=drive_link'
+    url = 'https://drive.google.com/file/d/1Gh-zLY7m5WxdpVBiMNdg0YHE38RKiJMf/view?usp=sharing'
     output_path = path + 'Models/Human-Toolkit/DWPose/yolox_l.onnx'
     gdown.download(url, output_path, quiet=False, fuzzy=True)
     sess = InferenceSession(output_path)
@@ -105,6 +105,7 @@ class DWposeDetector:
 
 
         return pose_image
+
 
 
 
